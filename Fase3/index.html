@@ -1,0 +1,110 @@
+<html>
+
+<head>
+    <title>RELOJ by Angel</title>
+    <link href="https://fonts.googleapis.com/css?family=Play|Source+Sans+Pro" rel="stylesheet">
+    <script src="https://use.fontawesome.com/f4e7614a5b.js"></script>
+    <link rel="stylesheet" type="text/css" href="reloj.css">
+</head>
+<html>
+
+<head>
+    <title>RELOJ</title>
+    <link href="https://fonts.googleapis.com/css?family=Play|Source+Sans+Pro" rel="stylesheet">
+    <script src="https://use.fontawesome.com/f4e7614a5b.js"></script>
+    <link rel="stylesheet" type="text/css" href="reloj.css">
+</head>
+
+<body>
+    <div>
+        <div class="clock-exteriorbox">
+            <div class="clock-interiorbox">
+                <div class="clock-weekdaysbox">
+                    <div class="clock-weekdays">
+                        mon
+                    </div>
+                    <div class="clock-weekdays">
+                        tue
+                    </div>
+                    <div class="clock-weekdays">
+                        wed
+                    </div>
+                    <div class="clock-weekdays">
+                        thu
+                    </div>
+                    <div class="clock-weekdays">
+                        fri
+                    </div>
+                    <div class="clock-weekdays">
+                        sat
+                    </div>
+                    <div class="clock-weekdays">
+                        sun
+                    </div>
+                </div>
+                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                <div class="clock-hoursbox">
+                    <div id="hour" class="clock-time">00</div>
+                    <div class="clock-time">:</div>
+                    <div id="min" class="clock-time">00</div>
+                    <div class="clock-time">:</div>
+                    <div id="second" class="clock-time">00</div>
+                </div>
+                <div class="clock-format">
+                    <div id="PM" class="formatAmPm">PM</div>
+                    <div id="AM" class="formatAmPm">AM</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    console.warn('app load')
+
+    var objDate = {
+        getDate: function(){ return new Date}
+    }
+
+    function init() {
+        getDay();
+        checkAmPm();
+        setInterval(startTime, 500);
+    }
+
+    function getDay() {
+        var todayIndex = (objDate.getDate().getDay() === 0) ? 0 : objDate.getDate().getDay() - 1;
+        var arrDays = document.getElementsByClassName('clock-weekdays');
+        arrDays[todayIndex].classList.add('highlight')
+    }
+
+    function checkAmPm() {
+        (objDate.getDate().getHours() >= 12) ?
+            document.getElementById('PM').classList.add('highlight'):
+            document.getElementById('AM').classList.add('highlight');
+    }
+
+    function startTime() {
+        var hour = objDate.getDate().getHours();
+        var min = objDate.getDate().getMinutes();
+        var second = objDate.getDate().getSeconds();
+        hour = parseTime(hour);
+        min = parseTime(min);
+        second = parseTime(second);
+        document.getElementById('hour').innerHTML = hour
+        document.getElementById('min').innerHTML = min
+        document.getElementById('second').innerHTML = second
+    }
+
+    function parseTime(i) {
+        if (i < 10) {
+            i = "0" + i
+        };
+        return i;
+    }
+
+    init();
+</script>
+
+</html>

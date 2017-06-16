@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>RELOJ</title>
+        <link href="https://fonts.googleapis.com/css?family=Play|Source+Sans+Pro" rel="stylesheet">
+        <script src="https://use.fontawesome.com/f4e7614a5b.js"></script>
+        <link rel="stylesheet" type="text/css" href="reloj.css">
+    </head>
+    <body>
+        <div ng-app="RelojApp" ng-controller="RelojController as ctrl">
+            <div class="clock-exteriorbox">
+                <div class="clock-interiorbox">
+                    <div class="clock-weekdaysbox">
+                        <div class="clock-weekdays" ng-repeat="day in ctrl.daysArray" ng-class="{'highlight': $index === ctrl.weekday}">
+                            {{day}}
+                        </div>
+                    </div>
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    <div class="clock-hoursbox">
+                        <div class="clock-time">{{ ctrl.hours }}</div>
+                        <div class="clock-time">:</div>
+                        <div class="clock-time">{{ ctrl.minutes }}</div>
+                        <div class="clock-time">:</div>
+                        <div class="clock-time">{{ ctrl.seconds }}</div>
+                    </div>
+                    <div class="clock-format">
+                        <div ng-class="{'highlight': !ctrl.isNoon}">AM</div>
+                        <div ng-class="{'highlight': ctrl.isNoon}">PM</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script>
+        (function() {
+            function RelojController($interval){
+                const INTERVAL = 1000;
+                let vm = this;
+               
+                function init() {
+                    _getActualDate();
+                };
+                
+                init();
+                
+                function _getActualDate() {
+                    let date;
+                    vm.daysArray = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
+                    $interval(() => {
+                        date = new Date();
+                        vm.hours = ("0" + date.getHours()).slice(-2);
+                        vm.minutes = ("0" + date.getMinutes()).slice(-2);
+                        vm.seconds = ("0" + date.getSeconds()).slice(-2);
+                        vm.weekday = date.getDay() - 1;
+                        vm.isNoon = (date.getHours() >= 12)? true: false;
+                    }, INTERVAL);
+                };
+            }
+            angular
+                .module("RelojApp")
+                .controller("RelojController", RelojController);
+        })();
+    </script>
+</html>
