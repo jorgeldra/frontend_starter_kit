@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>RELOJ</title>
+        <link href="https://fonts.googleapis.com/css?family=Play|Source+Sans+Pro" rel="stylesheet">
+        <script src="https://use.fontawesome.com/f4e7614a5b.js"></script>
+        <link rel="stylesheet" type="text/css" href="reloj.css">
+    </head>
+    <body>
+        <div ng-app="RelojApp" ng-controller="RelojController as ctrl">
+            <div class="clock-exteriorbox">
+                <div class="clock-interiorbox">
+                    <days-week></days-week>
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    <clock-time></clock-time>
+                    <period-noon></period-noon>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+    <script src="app.js"></script>
+    <script src="services/weatherService.js"></script>
+    <script src="components/days-week/days-week.js"></script>
+    <script src="components/period-noon/period-noon.js"></script>
+    <script src="components/clock-time/clock-time.js"></script>
+</html>
