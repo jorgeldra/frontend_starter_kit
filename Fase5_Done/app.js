@@ -1,9 +1,12 @@
 (function() {
     function RelojController(weatherService){
         //now this is more clean
-        weatherService.getWeather.then(data => {
-        	console.log(data)
-		});
+        vm = this;
+        function init(){
+
+        }
+
+        init();     
     }
     angular
         .module("RelojApp",[])

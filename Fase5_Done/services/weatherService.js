@@ -7,25 +7,35 @@
 	
 	function weatherService($q, $http, API_WEATHER){
 
-		function _getWeather(callbackFunc){
+		function _getWeather({city, country, unit}){
+			let defered = $q.defer();  
+			let promise = defered.promise; 
+
+			let defaultSearch = {
+				city: 'London',
+				country: 'GB',
+				units: 'imperial'
+			};
 			
 			$http({
 				method: 'GET',
 	            url: API_WEATHER.API_URL,
 	            params: {
-	            	q:'Madrid,ES',
-	            	appId:API_WEATHER.API_KEY,
-	            	units: 'metric'
+	            	q: (city && country)? city +','+ country : defaultSearch.city + ',' + defaultSearch.country,
+	            	appId: API_WEATHER.API_KEY,
+	            	units: (unit)? unit : defaultSearch.units
 	            },
-			}).then(function (data){
-				callbackFunc(data);
-			},function (error){
-				console.log(error)
+			}).then(data => {
+				defered.resolve(data);
+			}, error => {
+				defered.reject(error);
 			});
+
+			return promise
 		}
 	
 		return {
-			getWeather: _getWeather()	
+			getWeather: _getWeather	
 		}
 	}
 
