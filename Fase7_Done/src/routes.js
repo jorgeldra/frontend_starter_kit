@@ -4,15 +4,17 @@
         $urlRouterProvider.otherwise("/reloj");
 
         $stateProvider
-            .state('reloj', {
+            .state("reloj", {
                     url: "/reloj",
                     templateUrl: "views/reloj.html",
-                    controller: 'RelojController',
-                    controllerAs: 'ctrlViewReloj'
+                    controller: "RelojController",
+                    controllerAs: "ctrlViewReloj"
             })
-            .state('mapa', {
+            .state("mapa", {
                     url: "/mapa",
                     templateUrl: "views/mapa.html",
+                    controller: "MapaController",
+                    controllerAs: "ctrlViewMap"
             })
     }
    

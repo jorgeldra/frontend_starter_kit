@@ -1,5 +1,5 @@
 (function() {
-    function RelojController(WEATHER_CONF){
+    function MapaController(WEATHER_CONF){
         vm = this;
         function init(){
         	vm.configWeather = WEATHER_CONF;
@@ -9,5 +9,5 @@
     }
     angular
         .module("RelojApp")
-        .controller("RelojController", RelojController);
+        .controller("MapaController", MapaController);
 })();

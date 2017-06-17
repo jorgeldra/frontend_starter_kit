@@ -35,15 +35,12 @@
       };
       
       weatherService.getWeather(config).then(data => {
-        console.log(data.data)
         let weatherCurrentDay = data.data.list[weekday];
         this.city = data.data.city.name;
         this.weatherDescription = weatherCurrentDay.weather[0].main;
         this.tempMax =  weatherCurrentDay.temp.max;
         this.tempMin =  weatherCurrentDay.temp.min;
         this.icon = weatherCurrentDay.weather[0].icon;
-        
-        console.log(weatherCurrentDay)
 
       });
     };

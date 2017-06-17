@@ -22,7 +22,7 @@
       ].join('')
   });
 
-  function weatherWidgetController(weatherService, $scope) {
+  function weatherWidgetController(weatherService) {
     let date = new Date();
     let weekday = date.getDay() - 1;
     

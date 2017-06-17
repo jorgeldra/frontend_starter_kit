@@ -75,3 +75,19 @@
     padding-right: 15px;
     padding-bottom: 15px;
 }
+
+.fa-reply{
+    font-size: 15px;
+    float: right;
+    color: #c9c9c9;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+#map{
+    height: 300px;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
