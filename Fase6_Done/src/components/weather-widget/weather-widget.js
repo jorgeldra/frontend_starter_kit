@@ -24,7 +24,7 @@
 
   function weatherWidgetController(weatherService) {
     let date = new Date();
-    let weekday = date.getDay() - 1;
+    let weekday = (date.getDay() > 0)? date.getDay() - 1 : date.getDay();
     
     this.$onInit = function() {
       //bindings have been done
