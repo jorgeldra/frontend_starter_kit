@@ -1,2 +1,2 @@
-# FrontEnd_StartedKit
-Started kit para nuevas incorporaciones en Bankia
+# Frontend_Starter_Kit
+Starter kit para nuevas incorporaciones

@@ -2,7 +2,7 @@
 	
 	let API_WEATHER = {
 		API_KEY: "4959fc6b1ef0524303ca10b5e45771e2",
-		API_URL: "http://api.openweathermap.org/data/2.5/forecast/daily"
+		API_URL: "http://api.openweathermap.org/data/2.5/weather"
 	}
 	
 	function weatherService($q, $http, API_WEATHER){

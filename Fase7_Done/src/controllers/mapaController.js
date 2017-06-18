@@ -2,7 +2,7 @@
     function MapaController(shareDataFactory){
         vm = this;
         function init(){
-        	vm.coords = shareDataFactory.getWeather().data.city.coord;
+        	vm.coords = shareDataFactory.getWeather().data.coord;
         }
 
         init();     

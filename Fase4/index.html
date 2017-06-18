@@ -51,7 +51,7 @@
                         vm.hours = ("0" + date.getHours()).slice(-2);
                         vm.minutes = ("0" + date.getMinutes()).slice(-2);
                         vm.seconds = ("0" + date.getSeconds()).slice(-2);
-                        vm.weekday = date.getDay() - 1;
+                        vm.weekday = (date.getDay() > 0)? date.getDay() - 1 : 6;
                         vm.isNoon = (date.getHours() >= 12)? true: false;
                     }, INTERVAL);
                 };

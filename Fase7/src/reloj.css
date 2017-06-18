@@ -56,10 +56,6 @@
     text-align: center;
 }
 
-.icon{
-    height: 75px;
-}
-
 .highlight {
     color: #c9c9c9;
 }
@@ -70,5 +66,9 @@
 
 .cold{
     color:#6282CB;
-;
 }
+
+.temp{
+    font-size:35px;
+}
+

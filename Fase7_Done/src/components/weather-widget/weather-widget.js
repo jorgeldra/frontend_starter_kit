@@ -17,14 +17,16 @@
                 <span class="hot">Max {{$ctrl.tempMax}}°</span>
                 <span class="cold"> - Mín {{$ctrl.tempMin}}°</span>
               </div>
-              <img class="icon" src="http://openweathermap.org/img/w/{{$ctrl.icon}}.png"
+              <span class="temp">{{$ctrl.temp}}°</span>
+              <div>
+                <img src="http://openweathermap.org/img/w/{{$ctrl.icon}}.png">
+              </div>
          </div>`
       ].join('')
   });
 
   function weatherWidgetController(weatherService, $scope, shareDataFactory) {
     let date = new Date();
-    let weekday = (date.getDay() > 0)? date.getDay() - 1 : date.getDay();
     
     this.$onInit = function() {
       //bindings have been done
@@ -36,12 +38,12 @@
       
       weatherService.getWeather(config).then(data => {
         shareDataFactory.setWeather(data);
-        let weatherCurrentDay = data.data.list[weekday];
-        this.city = data.data.city.name;
-        this.weatherDescription = weatherCurrentDay.weather[0].main;
-        this.tempMax =  weatherCurrentDay.temp.max;
-        this.tempMin =  weatherCurrentDay.temp.min;
-        this.icon = weatherCurrentDay.weather[0].icon;
+        this.city = data.data.name;
+        this.weatherDescription =  data.data.weather[0].main;
+        this.tempMax =  data.data.main.temp_max;
+        this.tempMin =  data.data.main.temp_min;
+        this.icon = data.data.weather[0].icon;
+        this.temp = data.data.main.temp;
 
       });
     };
