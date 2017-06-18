@@ -22,9 +22,9 @@
       ].join('')
   });
 
-  function weatherWidgetController(weatherService, $scope) {
+  function weatherWidgetController(weatherService, $scope, shareDataFactory) {
     let date = new Date();
-    let weekday = date.getDay() - 1;
+    let weekday = (date.getDay() > 0)? date.getDay() - 1 : date.getDay();
     
     this.$onInit = function() {
       //bindings have been done
@@ -35,6 +35,7 @@
       };
       
       weatherService.getWeather(config).then(data => {
+        shareDataFactory.setWeather(data);
         let weatherCurrentDay = data.data.list[weekday];
         this.city = data.data.city.name;
         this.weatherDescription = weatherCurrentDay.weather[0].main;

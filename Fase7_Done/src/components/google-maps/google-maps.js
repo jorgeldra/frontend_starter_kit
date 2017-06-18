@@ -4,7 +4,7 @@
     .component('googleMaps', {
       controller: googleMapsController,
       bindings:{
-        configMap: '='
+        coord: '='
       },
       template: [
         `<div id="map"></div>`
@@ -14,25 +14,16 @@
   function googleMapsController(weatherService) {    
     this.$onInit = function() {
       //bindings have been done
-      let config = {
-          city: this.configMap.city,
-          country : this.configMap.country,
-          unit: this.configMap.unit
-      };
-      
-      weatherService.getWeather(config).then(data => {
-        this.coords = data.data.city.coord;
-        var poi = {lat: this.coords.lat, lng: this.coords.lon};
-        var map = new google.maps.Map(document.getElementById('map'), {
+      var poi = {lat: this.coord.lat, lng: this.coord.lon};
+      var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 12,
           center: poi
-        });
-        var marker = new google.maps.Marker({
+      });
+      var marker = new google.maps.Marker({
           position: poi,
           map: map
-        });
-
       });
+      
     };
   }
 })();
