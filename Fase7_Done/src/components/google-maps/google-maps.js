@@ -6,9 +6,9 @@
       bindings:{
         coord: '='
       },
-      template: [
-        `<div id="map"></div>`
-      ].join('')
+      template: function(){
+        return `<div id="map"></div>`;
+      }
   });
 
   googleMapsController.$inject = ['weatherService'];

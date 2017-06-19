@@ -8,21 +8,21 @@
         country:'@?',
         unit:'@?'
       },
-      template: [
-        `<div class="weather-info highlight">
-              <span >{{$ctrl.city}}</span>
-              <span> - </span>
-              <span>{{$ctrl.weatherDescription}}
-              <div>
-                <span class="hot">Max {{$ctrl.tempMax}}°</span>
-                <span class="cold"> - Mín {{$ctrl.tempMin}}°</span>
-              </div>
-              <span class="temp">{{$ctrl.temp}}°</span>
-              <div>
-                <img src="http://openweathermap.org/img/w/{{$ctrl.icon}}.png">
-              </div>
-         </div>`
-      ].join('')
+      template: function(){
+        return `<div class="weather-info highlight">
+                    <span >{{$ctrl.city}}</span>
+                    <span> - </span>
+                    <span>{{$ctrl.weatherDescription}}
+                    <div>
+                      <span class="hot">Max {{$ctrl.tempMax}}°</span>
+                      <span class="cold"> - Mín {{$ctrl.tempMin}}°</span>
+                    </div>
+                    <span class="temp">{{$ctrl.temp}}°</span>
+                    <div>
+                      <img src="http://openweathermap.org/img/w/{{$ctrl.icon}}.png">
+                    </div>
+               </div>`;
+      }
   });
 
   weatherWidgetController.$inject = ['weatherService'];

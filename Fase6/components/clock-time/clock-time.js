@@ -3,25 +3,28 @@
     .module('RelojApp')
     .component('clockTime', {
       controller: clockTimeController,
-      template: [
-        `<div class="clock-hoursbox">
-            <div class="clock-time">{{ $ctrl.hours }}</div>
-            <div class="clock-time">:</div>
-            <div class="clock-time">{{ $ctrl.minutes }}</div>
-            <div class="clock-time">:</div>
-            <div class="clock-time">{{ $ctrl.seconds }}</div>
-          </div>`
-      ].join('')
+      template: function(){
+        return  `<div class="clock-hoursbox">
+                  <div class="clock-time">{{ $ctrl.hours }}</div>
+                  <div class="clock-time">:</div>
+                  <div class="clock-time">{{ $ctrl.minutes }}</div>
+                  <div class="clock-time">:</div>
+                  <div class="clock-time">{{ $ctrl.seconds }}</div>
+                </div>`;
+      }
   });
 
+  clockTimeController.$inject = ['$interval'];
   function clockTimeController($interval) {
-    let date = new Date();
     const INTERVAL = 1000;
+    let vm = this;
+    let date = new Date();
+    
     $interval(() => {
         date = new Date();
-        this.hours = ("0" + date.getHours()).slice(-2);
-        this.minutes = ("0" + date.getMinutes()).slice(-2);
-        this.seconds = ("0" + date.getSeconds()).slice(-2);
+        vm.hours = ("0" + date.getHours()).slice(-2);
+        vm.minutes = ("0" + date.getMinutes()).slice(-2);
+        vm.seconds = ("0" + date.getSeconds()).slice(-2);
     }, INTERVAL);
   }
 })();

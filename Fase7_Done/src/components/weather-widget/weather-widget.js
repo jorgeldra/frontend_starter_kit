@@ -8,8 +8,8 @@
         country:'@?',
         unit:'@?'
       },
-      template: [
-        `<div class="weather-info highlight">
+      template: function(){
+        return `<div class="weather-info highlight">
               <span >{{$ctrl.city}}</span>
               <span> - </span>
               <span>{{$ctrl.weatherDescription}}
@@ -21,8 +21,8 @@
               <div>
                 <img src="http://openweathermap.org/img/w/{{$ctrl.icon}}.png">
               </div>
-         </div>`
-      ]
+         </div>`;
+      }
   });
 
   weatherWidgetController.$inject = ['weatherService', 'shareDataFactory'];
