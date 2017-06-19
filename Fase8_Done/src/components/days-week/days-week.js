@@ -9,6 +9,7 @@
                       {{::day}}
                   </div>
                  </div>`;
+      }
   });
 
   function daysWeekController() {
