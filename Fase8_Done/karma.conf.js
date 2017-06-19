@@ -16,6 +16,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js',
+      'node_modules/angular-mocks/angular-mocks.js',
       'https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js',
       'https://maps.googleapis.com/maps/api/js?key=AIzaSyBTnLqfQbAMQVLZDY8WEiPfQesPf8wkwwY',
       'src/**/*.js',
