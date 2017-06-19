@@ -17,6 +17,7 @@ module.exports = function(config) {
     files: [
       'https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js',
       'https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js',
+      'https://maps.googleapis.com/maps/api/js?key=AIzaSyBTnLqfQbAMQVLZDY8WEiPfQesPf8wkwwY',
       'src/**/*.js',
       'tests/**/*.js',
       '!src/gulpfile.js'
@@ -45,7 +46,7 @@ module.exports = function(config) {
     //The reporter defaults to the following values.
     coverageReporter : {
       type : 'html',
-      dir : 'coverage/'
+      dir : 'tests/coverage/'
     },
 
 
