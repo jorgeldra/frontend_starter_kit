@@ -19,6 +19,7 @@ module.exports = function(config) {
       'node_modules/angular-mocks/angular-mocks.js',
       'https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js',
       'https://maps.googleapis.com/maps/api/js?key=AIzaSyBTnLqfQbAMQVLZDY8WEiPfQesPf8wkwwY',
+      'tests/mocks/mockGoogleMaps.js',
       'src/**/*.js',
       'tests/**/*.js',
       '!src/gulpfile.js'
