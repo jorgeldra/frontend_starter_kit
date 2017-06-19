@@ -1,0 +1,36 @@
+<!-- añadir dependencias necesarias para karma y jasmine y aplicar TDD a controladores, servicios, componentes etc..-->
+<html>
+    <head>
+        <title>RELOJ</title>
+        <meta charset="UTF-8"> 
+        <link href="https://fonts.googleapis.com/css?family=Play|Source+Sans+Pro" rel="stylesheet">
+        <script src="https://use.fontawesome.com/f4e7614a5b.js"></script>
+        <link rel="stylesheet" type="text/css" href="reloj.css">
+    </head>
+    <body>
+        <div ng-app="RelojApp" ng-controller="RelojController as ctrl">
+            <div class="clock-exteriorbox">
+                <div class="clock-interiorbox">
+                     <div ui-view config-weather="ctrl.configWeather"></div>
+                     <i ng-show="$state.current.name === 'reloj'" class="fa fa-map-marker" aria-hidden="true" ui-sref="mapa"></i>
+                     <i  ng-show="$state.current.name === 'mapa'" class="fa fa-reply" aria-hidden="true" ui-sref="reloj"></i>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTnLqfQbAMQVLZDY8WEiPfQesPf8wkwwY"></script>
+    <script src="app.js"></script>
+    <script src="weatherConstant.js"></script>
+    <script src="routes.js"></script>
+    <script src="controllers/relojController.js"></script>
+    <script src="controllers/mapaController.js"></script>
+    <script src="services/shareDataService.js"></script>
+    <script src="services/weatherService.js"></script>
+    <script src="components/days-week/days-week.js"></script>
+    <script src="components/period-noon/period-noon.js"></script>
+    <script src="components/clock-time/clock-time.js"></script>
+    <script src="components/weather-widget/weather-widget.js"></script>
+    <script src="components/google-maps/google-maps.js"></script>
+</html>
