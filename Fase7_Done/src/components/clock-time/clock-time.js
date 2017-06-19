@@ -15,17 +15,19 @@
       ].join('')
   });
 
+  clockTimeController.$inject = ['$interval'];
   function clockTimeController($interval) {
-    let date = new Date();
     const INTERVAL = 1000;
+    let vm = this;
+    let date = new Date();
     
-    getTime(date,this);
+    _getTime(date,vm);
     $interval(() => {
-        getTime(date, this);
+        _getTime(date,vm);
     }, INTERVAL);
   }
 
-  function getTime(date,vm){
+  function _getTime(date,vm){
      date = new Date();
      vm.hours = ("0" + date.getHours()).slice(-2);
      vm.minutes = ("0" + date.getMinutes()).slice(-2);

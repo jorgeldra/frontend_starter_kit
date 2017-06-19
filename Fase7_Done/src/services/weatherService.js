@@ -1,11 +1,20 @@
 (function(){
 	
-	let API_WEATHER = {
+	const API_WEATHER = {
 		API_KEY: "4959fc6b1ef0524303ca10b5e45771e2",
 		API_URL: "http://api.openweathermap.org/data/2.5/weather"
 	}
+
+	angular
+		.module('RelojApp')
+		.constant('API_WEATHER', API_WEATHER)
+		.service('weatherService', weatherService);
 	
+	weatherService.$inject = ['$q', '$http', 'API_WEATHER'];
 	function weatherService($q, $http, API_WEATHER){
+		return {
+			getWeather: _getWeather	
+		}
 
 		function _getWeather({city, country, unit}){
 			let defered = $q.defer();  
@@ -33,15 +42,6 @@
 
 			return promise
 		}
-	
-		return {
-			getWeather: _getWeather	
-		}
 	}
-
-	angular
-		.module('RelojApp')
-		.constant('API_WEATHER', API_WEATHER)
-		.service('weatherService', weatherService);
 
 })();

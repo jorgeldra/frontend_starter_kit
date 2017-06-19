@@ -1,8 +1,10 @@
 (function() {
     angular
         .module("RelojApp",['ui.router'])
-        .run(['$rootScope', '$state',function ($rootScope, $state, $stateParams){                    
-                $rootScope.$state = $state;
-            }]
-    );
+        .run(runConfigApp)
+
+        runConfigApp.$inject = ['$rootScope', '$state'];
+        function runConfigApp($rootScope, $state){
+        	 $rootScope.$state = $state;
+        }
 })();

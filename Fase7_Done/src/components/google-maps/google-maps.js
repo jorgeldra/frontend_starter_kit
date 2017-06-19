@@ -11,10 +11,13 @@
       ].join('')
   });
 
+  googleMapsController.$inject = ['weatherService'];
   function googleMapsController(weatherService) {    
-    this.$onInit = function() {
+    let vm = this;
+
+    vm.$onInit = function() {
       //bindings have been done
-      var poi = {lat: this.coord.lat, lng: this.coord.lon};
+      var poi = {lat: vm.coord.lat, lng: vm.coord.lon};
       var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 12,
           center: poi
@@ -23,7 +26,6 @@
           position: poi,
           map: map
       });
-      
     };
   }
 })();

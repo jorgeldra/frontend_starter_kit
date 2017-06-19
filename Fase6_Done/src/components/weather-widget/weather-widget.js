@@ -25,25 +25,26 @@
       ].join('')
   });
 
+  weatherWidgetController.$inject = ['weatherService'];
   function weatherWidgetController(weatherService) {
+    let vm = this;
     let date = new Date();
-    
-    this.$onInit = function() {
+
+    vm.$onInit = function() {
       //bindings have been done
       let config = {
-          city: this.city,
-          country : this.country,
-          unit: this.unit
+          city: vm.city,
+          country : vm.country,
+          unit: vm.unit
       };
       
       weatherService.getWeather(config).then(data => {
-        this.city = data.data.name;
-        this.weatherDescription =  data.data.weather[0].main;
-        this.tempMax =  data.data.main.temp_max;
-        this.tempMin =  data.data.main.temp_min;
-        this.icon = data.data.weather[0].icon;
-        this.temp = data.data.main.temp;
-
+        vm.city = data.data.name;
+        vm.weatherDescription =  data.data.weather[0].main;
+        vm.tempMax =  data.data.main.temp_max;
+        vm.tempMin =  data.data.main.temp_min;
+        vm.icon = data.data.weather[0].icon;
+        vm.temp = data.data.main.temp;
       });
     };
   }

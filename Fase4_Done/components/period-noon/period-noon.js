@@ -13,6 +13,7 @@
 
   function periodNoonController() {
     let date = new Date();
-    this.isNoon = (date.getHours() >= 12)? true: false;
+    let vm = this;
+    vm.isNoon = (date.getHours() >= 12)? true: false;
   }
 })();

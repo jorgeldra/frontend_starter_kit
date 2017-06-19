@@ -1,5 +1,9 @@
 (function() {
-
+    angular
+        .module("RelojApp")
+        .config(configRoute)
+        
+    configRoute.$inject = ['$stateProvider','$urlRouterProvider'];
     function configRoute($stateProvider, $urlRouterProvider){
         $urlRouterProvider.otherwise("/reloj");
 
@@ -18,8 +22,6 @@
             })
     }
    
-    angular
-        .module("RelojApp")
-        .config(configRoute)
+    
        
 })();

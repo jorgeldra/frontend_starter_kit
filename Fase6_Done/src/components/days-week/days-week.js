@@ -13,8 +13,10 @@
   });
 
   function daysWeekController() {
+    let vm = this;
     let date = new Date();
-    this.daysArray = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
-    this.weekday = (date.getDay() > 0)? date.getDay() - 1 : 6;
+
+    vm.daysArray = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
+    vm.weekday = (date.getDay() > 0)? date.getDay() - 1 : 6;
   }
 })();

@@ -1,4 +1,9 @@
 (function() {
+    angular
+        .module("RelojApp")
+        .controller("RelojController", RelojController);
+
+    RelojController.$inject = ['WEATHER_CONF'];
     function RelojController(WEATHER_CONF){
         vm = this;
         function init(){
@@ -7,7 +12,5 @@
 
         init();     
     }
-    angular
-        .module("RelojApp")
-        .controller("RelojController", RelojController);
+    
 })();

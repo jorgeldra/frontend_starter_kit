@@ -1,4 +1,9 @@
 (function() {
+    angular
+        .module("RelojApp")
+        .controller("MapaController", MapaController);
+
+    MapaController.$inject = ['shareDataFactory'];
     function MapaController(shareDataFactory){
         vm = this;
         function init(){
@@ -7,7 +12,5 @@
 
         init();     
     }
-    angular
-        .module("RelojApp")
-        .controller("MapaController", MapaController);
+    
 })();

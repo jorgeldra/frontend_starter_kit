@@ -33,19 +33,26 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script>
         (function() {
+            angular
+                .module("RelojApp",[])
+                .controller("RelojController", RelojController);
+
+            RelojController.$inject = ['$interval'];
             function RelojController($interval){
                 const INTERVAL = 1000;
                 let vm = this;
-               
-                function init() {
-                    _getActualDate();
-                };
-                
-                init();
+                //bindable members
+                vm.daysArray = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
+                vm.hours = null;
+                vm.isNoon = null;
+                vm.minutes = null;
+                vm.seconds = null;
+                vm.weekday = null;
+
                 
                 function _getActualDate() {
                     let date;
-                    vm.daysArray = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
+                    
                     $interval(() => {
                         date = new Date();
                         vm.hours = ("0" + date.getHours()).slice(-2);
@@ -55,10 +62,14 @@
                         vm.isNoon = (date.getHours() >= 12)? true: false;
                     }, INTERVAL);
                 };
+
+                function init() {
+                    _getActualDate();
+                };
+                
+                init();
             }
-            angular
-                .module("RelojApp",[])
-                .controller("RelojController", RelojController);
+            
         })();
     </script>
 </html>
