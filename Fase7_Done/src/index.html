@@ -7,10 +7,10 @@
         <link rel="stylesheet" type="text/css" href="reloj.css">
     </head>
     <body>
-        <div ng-app="RelojApp" ng-controller="RelojController as ctrl">
+        <div ng-app="RelojApp">
             <div class="clock-exteriorbox">
                 <div class="clock-interiorbox">
-                     <div ui-view config-weather="ctrl.configWeather"></div>
+                     <div ui-view></div>
                      <i ng-show="$state.current.name === 'reloj'" class="fa fa-map-marker" aria-hidden="true" ui-sref="mapa"></i>
                      <i  ng-show="$state.current.name === 'mapa'" class="fa fa-reply" aria-hidden="true" ui-sref="reloj"></i>
                 </div>
@@ -25,8 +25,8 @@
     <script src="app.js"></script>
     <script src="weatherConstant.js"></script>
     <script src="routes.js"></script>
-    <script src="controllers/relojController.js"></script>
-    <script src="controllers/mapaController.js"></script>
+    <script src="components/city-info/city-info.js"></script>
+    <script src="components/map-info/map-info.js"></script>
     <script src="services/shareDataService.js"></script>
     <script src="services/weatherService.js"></script>
     <script src="components/days-week/days-week.js"></script>

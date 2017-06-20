@@ -10,15 +10,11 @@
         $stateProvider
             .state("reloj", {
                     url: "/reloj",
-                    templateUrl: "views/reloj.html",
-                    controller: "RelojController",
-                    controllerAs: "ctrlViewReloj"
+                    template: "<city-info></city-info>"
             })
             .state("mapa", {
                     url: "/mapa",
-                    templateUrl: "views/mapa.html",
-                    controller: "MapaController",
-                    controllerAs: "ctrlViewMap"
+                    template: "<map-info></map-info>"
             })
     }
    

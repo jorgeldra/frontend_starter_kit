@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">23.53% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>4/17</span>
+        <span class='fraction'>17/17</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,18 +30,18 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">25% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/4</span>
+        <span class='fraction'>4/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">23.53% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>4/17</span>
+        <span class='fraction'>17/17</span>
       </div>
     </div>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -106,7 +106,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -124,25 +124,25 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -157,8 +157,8 @@
         country:'@?',
         unit:'@?'
       },
-      template: <span class="fstat-no" title="function not covered" >function(){</span>
-<span class="cstat-no" title="statement not covered" >        return `&lt;div class="weather-info highlight"&gt;</span>
+      template: function(){
+        return `&lt;div class="weather-info highlight"&gt;
               &lt;span &gt;{{$ctrl.city}}&lt;/span&gt;
               &lt;span&gt; - &lt;/span&gt;
               &lt;span&gt;{{$ctrl.weatherDescription}}
@@ -175,26 +175,26 @@
   });
 &nbsp;
   weatherWidgetController.$inject = ['weatherService', 'shareDataFactory'];
-<span class="fstat-no" title="function not covered" >  function weatherWidgetController(weatherService, shareDataFactory) {</span>
-<span class="cstat-no" title="statement not covered" >    let vm = this;</span>
-<span class="cstat-no" title="statement not covered" >    let date = new Date();</span>
+  function weatherWidgetController(weatherService, shareDataFactory) {
+    let vm = this;
+    let date = new Date();
     
-<span class="cstat-no" title="statement not covered" >    vm.$onInit = <span class="fstat-no" title="function not covered" >function() {</span></span>
+    vm.$onInit = function() {
       //bindings have been done
-<span class="cstat-no" title="statement not covered" >      let config = {</span>
+      let config = {
           city: vm.city,
           country : vm.country,
           unit: vm.unit
       };
       
-<span class="cstat-no" title="statement not covered" >      weatherService.getWeather(config).then(data =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        shareDataFactory.setWeather(data);</span>
-<span class="cstat-no" title="statement not covered" >        vm.city = data.data.name;</span>
-<span class="cstat-no" title="statement not covered" >        vm.weatherDescription =  data.data.weather[0].main;</span>
-<span class="cstat-no" title="statement not covered" >        vm.tempMax =  data.data.main.temp_max;</span>
-<span class="cstat-no" title="statement not covered" >        vm.tempMin =  data.data.main.temp_min;</span>
-<span class="cstat-no" title="statement not covered" >        vm.icon = data.data.weather[0].icon;</span>
-<span class="cstat-no" title="statement not covered" >        vm.temp = data.data.main.temp;</span>
+      weatherService.getWeather(config).then(data =&gt; {
+        shareDataFactory.setWeather(data);
+        vm.city = data.data.name;
+        vm.weatherDescription =  data.data.weather[0].main;
+        vm.tempMax =  data.data.main.temp_max;
+        vm.tempMin =  data.data.main.temp_min;
+        vm.icon = data.data.weather[0].icon;
+        vm.temp = data.data.main.temp;
 &nbsp;
       });
     };
@@ -205,7 +205,7 @@
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Jun 19 2017 14:37:42 GMT+0200 (Romance Daylight Time)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Jun 20 2017 10:39:42 GMT+0200 (Romance Daylight Time)
 </div>
 </div>
 <script src="../../../prettify.js"></script>

@@ -17,7 +17,7 @@ describe('Component: weather-widget', function() {
 
     element = angular.element('<weather-widget city="Madrid" country="ES" unit="metric"></weather-widget>');
     element = _$compile_(element)(scope);
-    ctrl = element.controller;
+    ctrl = element.controller("weather-widget");
     $httpBackend = _$httpBackend_;
     $httpBackend
       .whenGET('http://api.openweathermap.org/data/2.5/weather?appId=4959fc6b1ef0524303ca10b5e45771e2&q=Madrid,ES&units=metric')

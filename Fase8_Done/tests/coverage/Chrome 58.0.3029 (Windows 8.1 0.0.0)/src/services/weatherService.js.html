@@ -20,28 +20,28 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">42.86% </span>
+        <span class="strong">92.86% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>6/14</span>
+        <span class='fraction'>13/14</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">66.67% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/6</span>
+        <span class='fraction'>4/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">33.33% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/3</span>
+        <span class='fraction'>3/3</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">42.86% </span>
+        <span class="strong">92.86% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>6/14</span>
+        <span class='fraction'>13/14</span>
       </div>
     </div>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -103,35 +103,35 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -148,36 +148,36 @@
 		.service('weatherService', weatherService);
 	
 	weatherService.$inject = ['$q', '$http', 'API_WEATHER'];
-<span class="fstat-no" title="function not covered" >	function weatherService($q, $http, API_WEATHER){</span>
-<span class="cstat-no" title="statement not covered" >		return {</span>
+	function weatherService($q, $http, API_WEATHER){
+		return {
 			getWeather: _getWeather	
 		}
 &nbsp;
-<span class="fstat-no" title="function not covered" >		function _getWeather({city, country, unit}){</span>
-<span class="cstat-no" title="statement not covered" >			let defered = $q.defer();  </span>
-<span class="cstat-no" title="statement not covered" >			let promise = defered.promise; </span>
+		function _getWeather({city, country, unit}){
+			let defered = $q.defer();  
+			let promise = defered.promise; 
 &nbsp;
-<span class="cstat-no" title="statement not covered" >			let defaultSearch = {</span>
+			let defaultSearch = {
 				city: 'London',
 				country: 'GB',
 				units: 'imperial'
 			};
 			
-<span class="cstat-no" title="statement not covered" >			$http({</span>
+			$http({
 				method: 'GET',
 	            url: API_WEATHER.API_URL,
 	            params: {
-	            	q: (city &amp;&amp; country)? city +','+ country : defaultSearch.city + ',' + defaultSearch.country,
+	            	q: (city &amp;&amp; country)? city +','+ country : <span class="branch-1 cbranch-no" title="branch not covered" >defaultSearch.city + ',' + defaultSearch.country,</span>
 	            	appId: API_WEATHER.API_KEY,
-	            	units: (unit)? unit : defaultSearch.units
+	            	units: (unit)? unit : <span class="branch-1 cbranch-no" title="branch not covered" >defaultSearch.units</span>
 	            },
 			}).then(data =&gt; {
-<span class="cstat-no" title="statement not covered" >				defered.resolve(data);</span>
+				defered.resolve(data);
 			}, error =&gt; {
 <span class="cstat-no" title="statement not covered" >				defered.reject(error);</span>
 			});
 &nbsp;
-<span class="cstat-no" title="statement not covered" >			return promise</span>
+			return promise
 		}
 	}
 &nbsp;
@@ -187,7 +187,7 @@
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Jun 19 2017 14:37:42 GMT+0200 (Romance Daylight Time)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Jun 20 2017 10:39:42 GMT+0200 (Romance Daylight Time)
 </div>
 </div>
 <script src="../../prettify.js"></script>

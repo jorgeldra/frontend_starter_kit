@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for src\components\period-noon\period-noon.js</title>
+    <title>Code coverage report for src\components\city-info\city-info.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -16,7 +16,7 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../../index.html">all files</a> / <a href="index.html">src/components/period-noon/</a> period-noon.js
+      <a href="../../../index.html">all files</a> / <a href="index.html">src/components/city-info/</a> city-info.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
@@ -25,9 +25,9 @@
         <span class='fraction'>7/7</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>1/2</span>
+        <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -63,13 +63,26 @@
 18
 19
 20
-21</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+21
+22
+23
+24
+25
+26
+27</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -77,30 +90,35 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">2×</span>
-<span class="cline-any cline-yes">2×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">(function() {
   angular  
     .module('RelojApp')
-    .component('periodNoon', {
-      controller: periodNoonController,
+    .component('cityInfo', {
+      controller: cityInfoController,
+      controllerAs: 'cityInfo',
+      bindToController: true,
       template: function(){
-        return `&lt;div class="clock-format"&gt;
-                    &lt;div ng-class="{'highlight': !$ctrl.isNoon}"&gt;AM&lt;/div&gt;
-                    &lt;div ng-class="{'highlight': $ctrl.isNoon}"&gt;PM&lt;/div&gt;
-                &lt;/div&gt;`;
+        return `&lt;days-week&gt;&lt;/days-week&gt;
+                &lt;i class="fa fa-clock-o" aria-hidden="true"&gt;&lt;/i&gt;
+                &lt;clock-time ng-cloak&gt;&lt;/clock-time&gt;
+                &lt;period-noon&gt;&lt;/period-noon&gt;
+                &lt;weather-widget 
+                    city="{{cityInfo.configWeather.city}}" 
+                    country="{{cityInfo.configWeather.country}}" 
+                    unit="{{cityInfo.configWeather.unit}}"&gt;
+                &lt;/weather-widget&gt;`;
       }
   });
 &nbsp;
-  function periodNoonController() {
+  cityInfoController.$inject = ['WEATHER_CONF'];
+  function cityInfoController(WEATHER_CONF) {
     vm = this;
-    let date = new Date();
-&nbsp;
-    vm.isNoon = (date.getHours() &gt;= 12)? <span class="branch-0 cbranch-no" title="branch not covered" >true:</span> false;
+    vm.configWeather = WEATHER_CONF;
   }
 })();
 &nbsp;</pre></td></tr>
