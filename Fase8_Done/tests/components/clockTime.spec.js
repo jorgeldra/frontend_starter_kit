@@ -4,12 +4,13 @@
 describe('Component: clock-time', function() {
 
   
-  let element, scope;
+  let element, scope, ctrl, $interval;
   
   beforeEach(module('RelojApp'));
 
-  beforeEach(inject(function(_$rootScope_, _$compile_) {
+  beforeEach(inject(function(_$rootScope_, _$compile_,_$interval_) {
     scope = _$rootScope_.$new();
+    $interval = _$interval_;
     element = angular.element('<clock-time></clock-time>');
     element = _$compile_(element)(scope);
     scope.$apply();
@@ -18,7 +19,7 @@ describe('Component: clock-time', function() {
 
 
   it('clock-time: comprueba que recibe y pinta horas, minutos y segundos', function() {
-  
+    $interval.flush(1000);
     let elemHour = parseInt(element[0].querySelectorAll('.clock-time')[0].innerText);
     let elemTwoDots = element[0].querySelectorAll('.clock-time')[1].innerText;
     let elemMinutes = parseInt(element[0].querySelectorAll('.clock-time')[2].innerText);
