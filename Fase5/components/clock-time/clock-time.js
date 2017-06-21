@@ -3,13 +3,15 @@
     .module('RelojApp')
     .component('clockTime', {
       controller: clockTimeController,
+      controllerAs: 'clockTime',
+      bindToController: true,
       template: function(){
         return `<div class="clock-hoursbox">
-                <div class="clock-time">{{ $ctrl.hours }}</div>
+                <div class="clock-time">{{ clockTime.hours }}</div>
                 <div class="clock-time">:</div>
-                <div class="clock-time">{{ $ctrl.minutes }}</div>
+                <div class="clock-time">{{ clockTime.minutes }}</div>
                 <div class="clock-time">:</div>
-                <div class="clock-time">{{ $ctrl.seconds }}</div>
+                <div class="clock-time">{{ clockTime.seconds }}</div>
               </div>`;
       }
   });

@@ -3,6 +3,8 @@
     .module('RelojApp')
     .component('googleMaps', {
       controller: googleMapsController,
+      controllerAs: 'googleMaps',
+      bindToController: true,
       bindings:{
         coord: '='
       },

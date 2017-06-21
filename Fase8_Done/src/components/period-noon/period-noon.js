@@ -3,10 +3,12 @@
     .module('RelojApp')
     .component('periodNoon', {
       controller: periodNoonController,
+      controllerAs: 'periodNoon',
+      bindToController: true,
       template: function(){
         return `<div class="clock-format">
-                    <div ng-class="{'highlight': !$ctrl.isNoon}">AM</div>
-                    <div ng-class="{'highlight': $ctrl.isNoon}">PM</div>
+                    <div ng-class="{'highlight': !periodNoon.isNoon}">AM</div>
+                    <div ng-class="{'highlight': periodNoon.isNoon}">PM</div>
                 </div>`;
       }
   });

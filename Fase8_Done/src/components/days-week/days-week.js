@@ -3,9 +3,11 @@
     .module('RelojApp')
     .component('daysWeek', {
       controller: daysWeekController,
+      controllerAs: 'daysWeek',
+      bindToController: true,
       template: function(){
         return `<div class="clock-weekdaysbox">
-                  <div class="clock-weekdays" ng-repeat="day in $ctrl.daysArray" ng-class="{'highlight': $index === $ctrl.weekday}">
+                  <div class="clock-weekdays" ng-repeat="day in daysWeek.daysArray" ng-class="{'highlight': $index === daysWeek.weekday}">
                       {{::day}}
                   </div>
                  </div>`;

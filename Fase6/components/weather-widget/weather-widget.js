@@ -3,6 +3,8 @@
     .module('RelojApp')
     .component('weatherWidget', {
       controller: weatherWidgetController,
+      controllerAs: 'weatherWidget',
+      bindToController: true,
       bindings:{
         city: '@?',
         country:'@?',
@@ -10,16 +12,16 @@
       },
       template: function(){
         return `<div class="weather-info highlight">
-                    <span >{{$ctrl.city}}</span>
+                    <span >{{weatherWidget.city}}</span>
                     <span> - </span>
-                    <span>{{$ctrl.weatherDescription}}
+                    <span>{{weatherWidget.weatherDescription}}
                     <div>
-                      <span class="hot">Max {{$ctrl.tempMax}}°</span>
-                      <span class="cold"> - Mín {{$ctrl.tempMin}}°</span>
+                      <span class="hot">Max {{weatherWidget.tempMax}}°</span>
+                      <span class="cold"> - Mín {{weatherWidget.tempMin}}°</span>
                     </div>
-                    <span class="temp">{{$ctrl.temp}}°</span>
+                    <span class="temp">{{weatherWidget.temp}}°</span>
                     <div>
-                      <img src="http://openweathermap.org/img/w/{{$ctrl.icon}}.png">
+                      <img src="http://openweathermap.org/img/w/{{weatherWidget.icon}}.png">
                     </div>
                </div>`;
       }
